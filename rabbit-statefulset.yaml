@@ -4,7 +4,7 @@ metadata:
   name: rabbitmq
 spec:
   serviceName: rabbitmq
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: rabbitmq
@@ -78,8 +78,8 @@ spec:
   - metadata:
       name: data
     spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "local-storage"
+      accessModes: [ "ReadWriteMany" ]
+      storageClassName: "rabbitnfs"
       resources:
         requests:
           storage: 500Mi
